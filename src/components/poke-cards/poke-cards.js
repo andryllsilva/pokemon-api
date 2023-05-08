@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getPokemons, getPokeData } from "../../services";
+import { getPokemons, getPokeData, capitalizeFirstLetter } from "../../services";
 import { Card, CardContainer, ImgPoke, Section, TagLink, PokeName, DivType, PokeType} from "./styled";
+import MeuBotao from "../btn-show-more/btn-show-more";
 
 export const PokeCards = () => {
 
-    const [poke, setPoke] = useState({
-        pokes: [],
-    })
+    const [poke, setPoke] = useState({ pokes: [] })
+    const [valueOff, setOffset] = useState(30)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,26 +23,26 @@ export const PokeCards = () => {
         fetchData()
     }, [])
 
-
-    console.log(poke.types)
+    
 
     return (
         <Section>
             <CardContainer>
-                {poke.pokes.map((item) => {
+                {poke.pokes.map((item, index) => {
                     return (
-                        <Card>
+                        <Card key={index}>
                             <TagLink>
                                 <ImgPoke src={item.sprites.other['official-artwork'].front_default}></ImgPoke>
-                                <PokeName>{item.name.toUpperCase()}</PokeName>
+                                <PokeName>{capitalizeFirstLetter(item.name.toString())}</PokeName>
                                 <DivType>
-                                    {item.types.map((item) => { return <PokeType id={item.type.name}>{item.type.name}</PokeType>})}
+                                    {item.types.map((item, typeIndex) => { return <PokeType key={typeIndex} id={item.type.name}>{capitalizeFirstLetter(item.type.name.toString())}</PokeType>})}
                                 </DivType>
                             </TagLink>
                         </Card>
                     )
                 })}
             </CardContainer>
+                <MeuBotao />
         </Section>
     )
 }

@@ -1,7 +1,7 @@
 import { Header } from "./components/header/header";
 import { PokeCards } from "./components/poke-cards/poke-cards";
 import { createGlobalStyle } from "styled-components";
-import './services/index' 
+import './services' 
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
 
 const GlobalStyle = createGlobalStyle`
 *{
+  font-family: 'Montserrat', sans-serif;
   padding: 0;
   list-style: none;
   margin: 0;

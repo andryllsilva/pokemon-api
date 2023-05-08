@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeaderTag = styled.header`
-    background-color: red;`
+    background-color: #c01313;`
 
 export const ImgLogo = styled.img`
     width: 200px;`
