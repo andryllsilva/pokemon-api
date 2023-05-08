@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPokemons, getPokeData, capitalizeFirstLetter } from "../../services";
+import { capitalizeFirstLetter, fetchData} from "../../services";
 import { Card, CardContainer, ImgPoke, Section, TagLink, PokeName, DivType, PokeType} from "./styled";
 import MeuBotao from "../btn-show-more/btn-show-more";
 
@@ -9,22 +9,10 @@ export const PokeCards = () => {
     const [valueOff, setOffset] = useState(30)
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getPokemons()
-            const urlPokes = data.map((item) => item.url)
-            const dataPokePromises = urlPokes.map(async (url) => {
-                return await getPokeData(url);
-            })
-            const dataPoke = await Promise.all(dataPokePromises);
-            setPoke({
-                pokes: dataPoke
-            })
-        }
-        fetchData()
+        fetchData(setPoke, valueOff)
     }, [])
 
     
-
     return (
         <Section>
             <CardContainer>
@@ -42,7 +30,7 @@ export const PokeCards = () => {
                     )
                 })}
             </CardContainer>
-                <MeuBotao />
+                <MeuBotao valueOff= {valueOff} setOffset={setOffset} setPoke={setPoke}/>
         </Section>
     )
 }
