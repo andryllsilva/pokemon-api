@@ -1,16 +1,15 @@
 import React from 'react';
-import { fetchData, getMorePokes } from '../../services';
+import { fetchData } from '../../services';
 import { BtnShow } from './styled';
 
 function MeuBotao({valueOff, setOffset, setPoke}) {
   const handleClick = async () => { 
-        console.log(await fetchData(setPoke, valueOff))
-        getMorePokes(valueOff)
+        await fetchData(setPoke, valueOff + 30)
         setOffset(valueOff + 30)
   };
 
   return (
-    <BtnShow onClick={handleClick}>Clique aqui</BtnShow>
+    <BtnShow onClick={handleClick}>Show more</BtnShow>
   );
 }
 

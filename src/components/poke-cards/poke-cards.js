@@ -6,7 +6,7 @@ import MeuBotao from "../btn-show-more/btn-show-more";
 export const PokeCards = () => {
 
     const [poke, setPoke] = useState({ pokes: [] })
-    const [valueOff, setOffset] = useState(30)
+    const [valueOff, setOffset] = useState(0)
 
     useEffect(() => {
         fetchData(setPoke, valueOff)
