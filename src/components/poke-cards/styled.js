@@ -1,17 +1,25 @@
 import styled, { css } from "styled-components";
+import { switchColorTypes } from "../../services";
 
-export const Card = styled.li`
+export const LiCard = styled.li`
 max-width: 250px;
-max-height: 340px;
+max-height: 320px;
 background-color: #F2F2F2;
 padding: 10px;
 border-radius: 10px;
 transition: 0.4s;
 box-shadow: 0px 1px 5px rgb(157, 156, 156);
 
+
+
 &:hover{
-    transform: scale(110%);
+    transform: scale(107%);
     cursor: pointer;
+    
+    img{
+        transition: 0.4s ease-in-out;
+        filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+    }      
 }
 `
 
@@ -30,6 +38,7 @@ flex-direction: column;
 align-items: center;`
 
 export const CardContainer = styled.ul`
+a{color: black;}
 display: grid;
 grid-template-columns: repeat(6,1fr);
 padding: 50px;
@@ -38,6 +47,7 @@ gap: 25px;
 export const ImgPoke = styled.img`
 width: 70%;
 `
+
 
 export const PokeName = styled.p`
 font-size: 20px;
@@ -49,21 +59,10 @@ display: flex;
 gap: 7px;
 `
 export const PokeType = styled.p`
-${(props) => 
-    props.id == 'poison' ? css`background: #b97fc9;` : false ||
-    props.id == 'grass' ? css`background: #9bcc50;`: false ||
-    props.id == 'fire' ? css`background: #fd7d24;`: false ||
-    props.id == 'ground' ? css`background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);` : false ||
-    props.id == 'flying' ? css`background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);` : false ||
-    props.id == 'water' ? css`background: #6890f0;` : false ||
-    props.id == 'bug' ? css`background: #a8b820;` : false ||
-    props.id == 'normal' ? css`background: #3dc7ef;` : false ||
-    props.id == 'electric' ? css`background: #f8d030;` : false
-
-
-} 
+${(props) => switchColorTypes(props)} 
 
 border-radius: 5px;
 padding: 7px;
 font-size: 20px;
+color: #fff;
 `

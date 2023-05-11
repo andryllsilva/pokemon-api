@@ -2,9 +2,10 @@ import React from 'react';
 import { fetchData } from '../../services';
 import { BtnShow } from './styled';
 
-function MeuBotao({valueOff, setOffset, setPoke}) {
+function MeuBotao({valueOff, setOffset, setPoke, setLoad, poke}) {
   const handleClick = async () => { 
-        await fetchData(setPoke, valueOff + 30)
+        setLoad(true)
+        await fetchData(setPoke, valueOff + 30, setLoad, poke)
         setOffset(valueOff + 30)
   };
 

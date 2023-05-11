@@ -1,14 +1,12 @@
-import { Header } from "./components/header/header";
-import { PokeCards } from "./components/poke-cards/poke-cards";
 import { createGlobalStyle } from "styled-components";
 import './services' 
+import { AppRoutes } from "./pages/routes";
 
 function App() {
   return (
     <>
       <GlobalStyle/>
-      <Header/>
-      <PokeCards/>
+      <AppRoutes />
     </>
   );
 }
@@ -20,6 +18,9 @@ const GlobalStyle = createGlobalStyle`
   padding: 0;
   list-style: none;
   margin: 0;
-}`
+  text-decoration:none;
+}
+
+`
 
 export default App;
