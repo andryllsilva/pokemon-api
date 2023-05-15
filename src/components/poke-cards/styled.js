@@ -11,14 +11,13 @@ transition: 0.4s;
 box-shadow: 0px 1px 5px rgb(157, 156, 156);
 
 
-
 &:hover{
     transform: scale(107%);
     cursor: pointer;
     
     img{
-        transition: 0.4s ease-in-out;
         filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+        transition: 0.4s ease-in-out;
     }      
 }
 `

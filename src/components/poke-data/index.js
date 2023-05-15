@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemon, capitalizeFirstLetter } from "../../services";
-import { DivCard, ImgPoke, Section, DivInfo, UlMoves, UlAbilities, TitleMoves, TitleAbilities, PokeType, DivTypes, DivPoke, PokeTitle, DivAbilities } from "./styled";
+import { DivCard, ImgPoke, Section, DivInfo, UlMoves, UlAbilities, TitleMoves, TitleAbilities, PokeType, DivTypes, DivPoke, PokeTitle, DivAbilities, PokeballImg } from "./styled";
+import Pokeball from '../../assets/pokeball.png'
+
+
 
 export const PokeData = () => {
     const [poke, setPoke] = useState({})
@@ -22,7 +25,8 @@ export const PokeData = () => {
     return (
         <Section>
             <DivCard>
-                <PokeTitle style={{ fontSize: '50px' }}>{capitalizeFirstLetter(poke.name)}</PokeTitle>
+                <PokeballImg src={Pokeball}></PokeballImg>
+                <PokeTitle>{capitalizeFirstLetter(poke.name)}</PokeTitle>
                 <DivPoke>
                     <DivTypes>
                         {poke.types?.map((item, typeIndex) => {

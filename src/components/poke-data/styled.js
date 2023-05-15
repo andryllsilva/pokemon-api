@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { switchColorTypes } from "../../services";
+import { css } from "styled-components";
+import Background from '../../assets/background.jpg'
 
 export const Section = styled.section`
 width: 100%;
@@ -9,11 +11,12 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-background-color: #c01313; 
+${css`background-image: url(${Background});
+background-reapet: norepeat;`}
 `
 
 export const DivCard = styled.div`
-background-color: red;
+background-color: rgb(151, 13, 13);
 min-width: 1000px;
 display: grid;
 grid-template-areas: 'PokeTitle PokeTitle'
@@ -22,14 +25,18 @@ grid-template-columns: repeat(2,1fr);
 padding: 60px;
 border-radius: 50px;
 box-shadow: 0px 1px 70px rgb(41, 16, 16);
-background-color: #F2F2F2;
 border: 4px solid rgb(41, 16, 16);
+position: relative;
+gap: 30px;
 `
 
 export const PokeTitle = styled.h1`
 grid-area: PokeTitle;
 text-align: center;
-margin-bottom: 40px`
+margin-bottom: 40px;
+color: #fff;
+font-size: 60px;
+`
 
 export const ImgPoke = styled.img`
 width: 400px;`
@@ -38,7 +45,10 @@ export const DivInfo = styled.div`
 grid-area: DivInfo;
 display: flex;
 flex-direction: column;
-background-color: white;`
+background-color: white;
+border-radius: 30px;
+border: 3px solid black;
+box-shadow: 0px 1px 5px rgb(99, 97, 97);`
 
 export const UlMoves = styled.ul`
 width: 100%;
@@ -101,17 +111,29 @@ color: #fff;
 
 export const DivTypes = styled.div`
 max-width: 300px;
-gap: 30px;
+gap: 15px;
 display: flex;
 align-items: center;
 justify-content: center;`
 
 export const DivPoke = styled.div`
+padding: 20px;
 grid-area: DivPoke;
 display: flex;
 flex-direction: column;
-align-items: center;`
+align-items: center;
+background-color: #fff;
+border-radius: 30px;
+border: 3px solid black;
+box-shadow: 0px 1px 5px rgb(99, 97, 97);`
 
 export const DivAbilities = styled.div`
-border-top: 5px solid #eff0f1;
+border-top: 3px solid black;
 margin-top: 20px;`
+
+export const PokeballImg = styled.img`
+position: absolute;
+width: 280px;
+top: -100px;
+left: -90px;
+transform: rotate(-30deg)`
