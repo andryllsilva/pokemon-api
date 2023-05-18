@@ -51,14 +51,32 @@ border: 3px solid black;
 box-shadow: 0px 1px 5px rgb(99, 97, 97);`
 
 export const UlMoves = styled.ul`
-width: 100%;
-height: 180px;
-display: flex;
-flex-direction: column;
-align-items: center;
-border-radius: 10px;
+height: max-content;
+max-height: 260px;
 overflow-y: auto;
-font-size: 17px;
+
+::before,
+::after{
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #f0f 100%);
+  width: calc(100% - 15px);
+  height:40px;
+}
+
+::before{
+  top: 0;
+  transform: rotate(180deg);
+}
+
+
+::after{
+  bottom: 0;
+}
+
 
 /* width */
   ::-webkit-scrollbar {
@@ -135,5 +153,10 @@ export const PokeballImg = styled.img`
 position: absolute;
 width: 280px;
 top: -100px;
-left: -90px;
-transform: rotate(-30deg)`
+right: -90px;
+transform: rotate(30deg)`
+
+export const ReturnImg = styled.img`
+position: absolute;
+top: 0;
+right 0;`

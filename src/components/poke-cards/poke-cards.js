@@ -3,7 +3,7 @@ import { capitalizeFirstLetter, fetchData } from "../../services";
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 import { LiCard, CardContainer, ImgPoke, Section, TagLink, PokeName, DivType, PokeType } from "./styled";
-import MeuBotao from "../btn-show-more/btn-show-more";
+import MeuBotao from "../buttons/btn-show-more/btn-show-more";
 
 export const PokeCards = () => {
 

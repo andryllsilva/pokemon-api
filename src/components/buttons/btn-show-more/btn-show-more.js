@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchData } from '../../services';
+import { fetchData } from '../../../services';
 import { BtnShow } from './styled';
 
 function MeuBotao({valueOff, setOffset, setPoke, setLoad, poke}) {
