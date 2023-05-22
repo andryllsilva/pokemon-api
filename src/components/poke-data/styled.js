@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { switchColorTypes } from "../../services";
 import { css } from "styled-components";
 import Background from '../../assets/background.jpg'
+import BackgroundPoke from '../../assets/pokedex.png'
 
 export const Section = styled.section`
 width: 100%;
@@ -11,8 +12,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-${css`background-image: url(${Background});
-background-reapet: norepeat;`}
+background-image: url(${Background});
+background-reapet: norepeat;
 `
 
 export const DivCard = styled.div`
@@ -50,10 +51,13 @@ border-radius: 30px;
 border: 3px solid black;
 box-shadow: 0px 1px 5px rgb(99, 97, 97);`
 
-export const UlMoves = styled.ul`
-height: max-content;
+export const DivUlInfo = styled.ul`
+position: relative;
+ul{
+  height: max-content;
 max-height: 260px;
 overflow-y: auto;
+text-align: center;
 
 ::before,
 ::after{
@@ -62,7 +66,7 @@ overflow-y: auto;
   z-index: 1;
   left: 0;
   pointer-events: none;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #f0f 100%);
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #fff 130%);
   width: calc(100% - 15px);
   height:40px;
 }
@@ -97,6 +101,9 @@ overflow-y: auto;
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+
+
+}
 `
 
 export const UlAbilities = styled.ul`
@@ -135,6 +142,8 @@ align-items: center;
 justify-content: center;`
 
 export const DivPoke = styled.div`
+background-image: url(${BackgroundPoke});
+background-size: cover;
 padding: 20px;
 grid-area: DivPoke;
 display: flex;

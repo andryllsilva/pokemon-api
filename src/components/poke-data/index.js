@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemon, capitalizeFirstLetter } from "../../services";
-import { DivCard, ImgPoke, Section, DivInfo, UlMoves, UlAbilities, TitleMoves, TitleAbilities, PokeType, DivTypes, DivPoke, PokeTitle, DivAbilities, PokeballImg } from "./styled";
+import { DivCard, ImgPoke, Section, DivInfo, DivUlInfo, UlAbilities, TitleMoves, TitleAbilities, PokeType, DivTypes, DivPoke, PokeTitle, DivAbilities, PokeballImg, DivUl } from "./styled";
 import Pokeball from '../../assets/pokeball.png'
 
 
@@ -18,7 +18,6 @@ export const PokeData = () => {
         fetchData()
     }, [])
 
-    console.log(poke.moves)
 
     const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
 
@@ -33,17 +32,20 @@ export const PokeData = () => {
                             return <PokeType key={typeIndex} id={item.type.name}>{capitalizeFirstLetter(item.type.name.toString())}</PokeType>
                         })}
                     </DivTypes>
-                    <ImgPoke src={imgUrl}></ImgPoke>
+                    <div>
+                        <ImgPoke src={imgUrl}></ImgPoke>
+                    </div>
+
                 </DivPoke>
                 <DivInfo>
-                    <div>
-                        <TitleMoves>Moves</TitleMoves>
-                        <UlMoves>
+                    <TitleMoves>Moves</TitleMoves>
+                    <DivUlInfo>
+                        <ul>
                             {poke.moves?.map((item, index) => {
                                 return <li key={index}>{item.move.name}</li>
                             })}
-                        </UlMoves>
-                    </div>
+                        </ul>
+                    </DivUlInfo>
                     <DivAbilities>
                         <TitleAbilities>Abilities</TitleAbilities>
                         <UlAbilities>
