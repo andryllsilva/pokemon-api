@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const HeaderTag = styled.header`
-    background-color: #c01313;`
+    background-color: #c01313;
+    box-shadow: 0px 1.7px 5px #5a5a5a;`
 
 export const ImgLogo = styled.img`
     width: 200px;`
@@ -16,4 +17,5 @@ export const HeaderContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     padding: 15px 40px;
-    gap: 50%`
+    gap: 50%
+    `
