@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { switchColorTypes } from "../../services";
-import Background from '../../assets/background.jpg'
 import BackgroundPoke from '../../assets/pokedex.png'
 import { Link } from 'react-router-dom';
 
@@ -12,7 +11,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-background-image: url(${Background});
+background-size: cover;
 background-reapet: norepeat;
 `
 
@@ -26,14 +25,14 @@ grid-template-areas: 'PokeTitle PokeTitle'
 grid-template-columns: repeat(2,1fr);
 padding: 60px;
 border-radius: 50px;
-box-shadow: 2px 2px 20px 2px rgb(1, 1, 1);
-border: 6px solid rgb(1, 1, 1);
+box-shadow: 4px 2px 4px 4px rgb(1, 1, 1);
+border: 4px solid black;
 position: relative;
 gap: 30px;
 `
 
 export const PokeTitle = styled.h1`
-text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+text-shadow: 2px 2px 2px rgba(5,5,0,0.5);
 grid-area: PokeTitle;
 text-align: center;
 margin-bottom: 40px;
@@ -51,41 +50,22 @@ h2{
 grid-area: DivInfo;
 display: flex;
 flex-direction: column;
+justify-content: space-between;
 background-color: #f2f2f2;
 border-radius: 30px;
 border: 3px solid black;
 box-shadow: 0px 1px 5px rgb(99, 97, 97);`
 
-export const DivUlInfo = styled.ul`
+export const UlInfo = styled.ul`
 position: relative;
-ul{
-  height: max-content;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+height: max-content;
 max-height: 260px;
 overflow-y: auto;
 text-align: center;
-
-::before,
-::after{
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  pointer-events: none;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #f2f2f2 110%);
-  width: calc(100% - 15px);
-  height:40px;
-}
-
-::before{
-  top: 0;
-  transform: rotate(180deg);
-}
-
-
-::after{
-  bottom: 0;
-}
-
 
 /* width */
   ::-webkit-scrollbar {
@@ -150,6 +130,8 @@ border: 3px solid black;
 box-shadow: 0px 1px 5px rgb(99, 97, 97);`
 
 export const DivAbilities = styled.div`
+min-height: 200px;
+margin-bottom: 20px;
 border-top: 3px solid black;
 `
 

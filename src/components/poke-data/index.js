@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemon, capitalizeFirstLetter } from "../../services";
-import { DivCard, ImgPoke, Section, DivInfo, DivUlInfo, UlAbilities, TitleMoves, TitleAbilities, PokeType, DivTypes, DivPoke, PokeTitle, DivAbilities, PokeballImg, DivUl, StyledLink } from "./styled";
+import { DivCard, Section, DivInfo, UlInfo, UlAbilities, PokeType, DivTypes, DivPoke, PokeTitle, DivAbilities, PokeballImg, StyledLink } from "./styled";
 import Pokeball from '../../assets/pokeball.png'
 import { FaArrowLeft } from "react-icons/fa";
+import { ThemeContext} from "../theme-context/theme-context";
 
 
 export const PokeData = () => {
     const [poke, setPoke] = useState({})
     const { id } = useParams()
+
+    const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
         async function fetchData() {
@@ -22,10 +25,10 @@ export const PokeData = () => {
     const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
 
     return (
-        <Section>
+        <Section style={{backgroundImage: `url(${theme.backgroundImage})`}}>
             <DivCard>
                 <StyledLink to={'/'}>
-                    <FaArrowLeft style={{fontSize: '30px', color: 'black'}}/>
+                    <FaArrowLeft style={{ fontSize: '30px', color: 'black' }} />
                 </StyledLink>
                 <PokeballImg src={Pokeball}></PokeballImg>
                 <PokeTitle>{capitalizeFirstLetter(poke.name)}</PokeTitle>
@@ -36,19 +39,17 @@ export const PokeData = () => {
                         })}
                     </DivTypes>
                     <div>
-                        <img style={{width: '400px'}} src={imgUrl}></img>
+                        <img alt={poke.name} style={{ width: '400px' }} src={imgUrl}></img>
                     </div>
 
                 </DivPoke>
                 <DivInfo>
                     <h2>Moves</h2>
-                    <DivUlInfo>
-                        <ul>
-                            {poke.moves?.map((item, index) => {
-                                return <li key={index}>{item.move.name}</li>
-                            })}
-                        </ul>
-                    </DivUlInfo>
+                    <UlInfo>
+                        {poke.moves?.map((item, index) => {
+                            return <li key={index}>{item.move.name}</li>
+                        })}
+                    </UlInfo>
                     <DivAbilities>
                         <h2>Abilities</h2>
                         <UlAbilities>

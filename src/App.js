@@ -1,12 +1,15 @@
 import { createGlobalStyle } from "styled-components";
-import './services' 
+import './services'
 import { AppRoutes } from "./pages/routes";
+import { ThemeProvider } from "./components/theme-context/theme-context";
 
 function App() {
   return (
     <>
-      <GlobalStyle/>
-      <AppRoutes />
+      <ThemeProvider>
+        <GlobalStyle />
+        <AppRoutes />
+      </ThemeProvider>
     </>
   );
 }

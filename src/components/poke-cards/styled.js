@@ -1,14 +1,18 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { switchColorTypes } from "../../services";
 
 export const LiCard = styled.li`
 max-width: 250px;
 max-height: 320px;
 background-color: #F2F2F2;
-padding: 10px;
+padding: 15px 15px 23px 15px;
 border-radius: 10px;
 transition: 0.4s;
-box-shadow: 0px 1px 5px rgb(157, 156, 156);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
 
 
 &:hover{
@@ -22,13 +26,6 @@ box-shadow: 0px 1px 5px rgb(157, 156, 156);
 }
 `
 
-export const TagLink = styled.a`
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 10px;
-flex-direction: column;
-`
 
 export const Section = styled.section`
 display: flex;

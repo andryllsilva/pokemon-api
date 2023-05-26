@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 export const HeaderTag = styled.header`
-    background-color: #c01313;
-    box-shadow: 0px 1.7px 5px #5a5a5a;`
+background-color: #970d0d;
+-webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);`
 
 export const ImgLogo = styled.img`
     width: 200px;`
